@@ -1,0 +1,8 @@
+[build]
+  publish = "lifeline-connections-nj/lifeline-connections-nj/frontend"
+
+# Always revalidate the service worker so updates reach returning visitors
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache"

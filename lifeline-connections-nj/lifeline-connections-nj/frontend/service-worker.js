@@ -4,7 +4,7 @@
 // crisis info and the last-searched zip's resources available with no
 // connection, which matters most exactly when things go wrong.
 
-const CACHE_NAME = 'lifeline-shell-v1';
+const CACHE_NAME = 'lifeline-shell-v4';
 const API_CACHE_NAME = 'lifeline-api-v1';
 
 const SHELL_ASSETS = [
@@ -56,7 +56,23 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // App shell: cache-first
+  // Pages, styles and scripts: network-first so site updates show up
+  // immediately; fall back to the cache when offline
+  if (event.request.method === 'GET' && url.origin === self.location.origin) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          }
+          return response;
+        })
+        .catch(() => caches.match(event.request).then((cached) => cached || caches.match('/index.html')))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((cached) => cached || fetch(event.request))
   );
