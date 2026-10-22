@@ -4,7 +4,7 @@
 // crisis info and the last-searched zip's resources available with no
 // connection, which matters most exactly when things go wrong.
 
-const CACHE_NAME = 'lifeline-shell-v1';
+const CACHE_NAME = 'lifeline-shell-v2';
 const API_CACHE_NAME = 'lifeline-api-v1';
 
 const SHELL_ASSETS = [
