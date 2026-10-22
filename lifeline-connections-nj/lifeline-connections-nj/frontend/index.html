@@ -99,18 +99,17 @@
       <div class="donate-card">
         <h3>Make a donation</h3>
         <p class="sub">Lifeline Connections NJ, Inc. is a registered 501(c)(3) nonprofit. Donations may be tax-deductible.</p>
-        <div class="amount-grid" id="amount-grid">
-          <button class="amount-btn" data-amt="25">$25</button>
-          <button class="amount-btn active" data-amt="50">$50</button>
-          <button class="amount-btn" data-amt="100">$100</button>
+        <div class="zeffy-embed">
+          <div data-zeffy-embed data-form-url="/embed/donation-form/donate-to-lifeline-connections-nj"></div>
+          <div data-zeffy-embed-fallback style="display:none;">
+            <div style="position:relative;overflow:hidden;height:450px;width:100%;"><iframe title='Donation form powered by Zeffy' style='position: absolute; border: 0; top:0;left:0;bottom:0;right:0;width:100%;height:100%' data-zeffy-embed-src='https://www.zeffy.com/embed/donation-form/donate-to-lifeline-connections-nj' allowpaymentrequest allowTransparency="true"></iframe></div>
+          </div>
+          <script
+            src="https://www.zeffy.com/embed/v2/zeffy-embed.js"
+            onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function(f){f.src=f.getAttribute('data-zeffy-embed-src');});});">
+          </script>
         </div>
-        <div class="amount-custom">
-          <span>$</span>
-          <input id="amount-custom" type="text" inputmode="numeric" placeholder="Other amount">
-        </div>
-        <button class="give-btn" id="give-btn">Donate securely</button>
-        <div id="give-confirm" class="give-confirm">Payment processing isn't wired up yet. Connect a processor like Stripe or a nonprofit giving platform to accept real donations here. See backend/README.md.</div>
-        <p class="give-note">Secure checkout · Recurring giving available · No account required</p>
+        <p class="give-note">Secure checkout powered by Zeffy · Recurring giving available · No account required</p>
       </div>
     </div>
   </div>

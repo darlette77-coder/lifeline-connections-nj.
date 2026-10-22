@@ -158,21 +158,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ---- Donation amount buttons (front-end only; wire to a real processor) ----
-const amountGrid = document.getElementById('amount-grid');
-amountGrid.querySelectorAll('.amount-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    amountGrid.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('amount-custom').value = '';
-  });
-});
-document.getElementById('give-btn').addEventListener('click', () => {
-  const el = document.getElementById('give-confirm');
-  el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 8000);
-});
-
 // ---- PWA: register service worker ----
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

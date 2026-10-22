@@ -47,10 +47,6 @@ data volume outgrows them.
 
 **Still needs your input before public launch:**
 - Real, verified NJ resource data (only 3 sample entries are seeded)
-- A payment processor wired into the Donate button (currently front-end
-  only — see the note in `index.html` near `give-btn`) — Stripe or a
-  nonprofit giving platform like Givebutter both integrate in an
-  afternoon
 - Basic auth on `POST /api/resources` before it's publicly reachable
 - A privacy policy / terms page if you're collecting any donor or contact
   information
