@@ -173,31 +173,8 @@ body{
 .donate-card{ background:var(--ink); color:var(--paper); border-radius:8px; padding:28px; }
 .donate-card h3{ margin:0 0 4px; font-size:16px; }
 .donate-card .sub{ font-size:12.5px; color:var(--slate); margin:0 0 18px; }
-.amount-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
-.amount-btn{
-  background:var(--ink-2); border:1px solid var(--line); color:var(--paper);
-  font-family:inherit; font-size:14px; font-weight:700; padding:12px 0; border-radius:5px; cursor:pointer;
-}
-.amount-btn.active{ background:var(--teal); color:var(--ink); border-color:var(--teal); }
-.amount-custom{
-  display:flex; align-items:center; gap:8px; margin-bottom:18px;
-  background:var(--ink-2); border:1px solid var(--line); border-radius:5px; padding:0 12px;
-}
-.amount-custom span{ color:var(--slate); font-size:14px; }
-.amount-custom input{ flex:1; background:transparent; border:none; color:var(--paper); font-family:inherit; font-size:14px; padding:12px 0; min-width:0; }
-.amount-custom input:focus{ outline:none; }
-.give-btn{
-  width:100%; background:var(--teal); color:var(--ink); border:none;
-  font-family:inherit; font-size:14.5px; font-weight:700; padding:13px 0;
-  border-radius:5px; cursor:pointer; transition:background .15s ease;
-}
-.give-btn:hover{ background:#3fcab6; }
+.zeffy-embed{ background:var(--paper); border-radius:6px; overflow:hidden; min-height:450px; }
 .give-note{ font-size:11px; color:var(--slate); margin-top:12px; line-height:1.5; text-align:center; }
-.give-confirm{
-  display:none; margin-top:12px; font-size:12.5px; background:rgba(47,184,166,0.12);
-  border:1px solid var(--teal-dim); color:#bdeee6; padding:10px 12px; border-radius:5px;
-}
-.give-confirm.show{ display:block; }
 
 @media (max-width:640px){
   .site-header, .zip-hero, .results, .prep, .mission-inner{ padding-left:18px; padding-right:18px; }
