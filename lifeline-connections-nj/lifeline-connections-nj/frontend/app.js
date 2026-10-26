@@ -1,9 +1,7 @@
 // ---- Configuration ----
-// Point this at your deployed backend. During local development this is
-// usually http://localhost:3001. Once the backend is deployed (Render,
-// Railway, Fly.io, etc.), replace with that URL, e.g.
-// 'https://api.lifelineconnectionsnj.com'
-const API_BASE_URL = window.LIFELINE_API_BASE_URL || 'http://localhost:3001';
+// The API is served by Netlify Functions on the same origin (/api/...).
+// Set window.LIFELINE_API_BASE_URL only to point at a different backend.
+const API_BASE_URL = window.LIFELINE_API_BASE_URL || '';
 
 const zipInput = document.getElementById('zip-input');
 const searchBtn = document.getElementById('search-btn');
