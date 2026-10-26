@@ -28,8 +28,12 @@ export default async (req) => {
     // place name is a nice-to-have; never fail the search over it
     const place = await resolveZip(zip).then((l) => l.place_name, () => null);
 
-    // fire-and-forget search log
-    db.sql`INSERT INTO search_log (zip_code) VALUES (${zip})`.catch(() => {});
+    // search log is best-effort; never fail the search over it
+    try {
+      await db.sql`INSERT INTO search_log (zip_code) VALUES (${zip})`;
+    } catch (e) {
+      console.warn("search_log insert failed:", e.message);
+    }
 
     return Response.json({ zip, place, count: resources.length, resources });
   } catch (err) {
