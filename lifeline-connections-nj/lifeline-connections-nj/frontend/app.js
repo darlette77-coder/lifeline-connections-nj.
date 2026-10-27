@@ -20,7 +20,7 @@ function groupByCategory(resources) {
 
 function resultsHTML(resources) {
   if (!resources.length) {
-    return `<div class="empty-state">No resources on file for this zip code yet. Try a nearby zip, or check back soon as our database grows.</div>`;
+    return `<div class="empty-state">No resources on file for this zip code yet. Check that it's a New Jersey zip code, try a nearby zip, or check back soon as our database grows.</div>`;
   }
   const groups = groupByCategory(resources);
   let html = '';
@@ -28,12 +28,15 @@ function resultsHTML(resources) {
     html += `<div class="cat-group"><h3>${escapeHTML(cat)}</h3>`;
     groups[cat].forEach(r => {
       const hours = (r.operating_hours && r.operating_hours.hours) ? r.operating_hours.hours : '';
+      const coverage = r.service_area === 'statewide' ? 'Serves all of New Jersey'
+        : r.service_area === 'county' && r.county ? `Serves ${r.county} County` : '';
       html += `<div class="res-card">
         <div class="type-badge type-${r.nims_type}">T${r.nims_type}</div>
         <div>
           <h4>${escapeHTML(r.organization_name)}</h4>
           <p class="addr">${escapeHTML(r.address)}</p>
           ${hours ? `<p class="hours">${escapeHTML(hours)}</p>` : ''}
+          ${coverage ? `<p class="hours">${escapeHTML(coverage)}</p>` : ''}
         </div>
         ${r.phone_number ? `<a class="phone" href="tel:${r.phone_number.replace(/[^0-9+]/g,'')}">${escapeHTML(r.phone_number)}</a>` : ''}
       </div>`;
